@@ -1,3 +1,10 @@
+My fork of TrueFramelessWindow that is adapted to closer represent the windows 10 desktop UI style
+![dark](screenshots/theme_dark.jpg)
+![light](screenshots/theme_light.jpg)
+
+It is currently a WIP, the window buttons are functional but do not have any animations on hover for example. There is also not yet a "maximized" icon svg, if you happen to have one please let me know.
+
+---
 # TrueFramelessWindow
 A true frameless window with Qt, on both Windows and macOS
 
