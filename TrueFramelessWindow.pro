@@ -4,17 +4,20 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui svg
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = TrueFramelessWindow
 TEMPLATE = app
+CONFIG += app_bundle
 
 SOURCES += main.cpp\
-    widget.cpp
+    widget.cpp \
+    thememanager.cc
 
-HEADERS  += widget.h
+HEADERS  += widget.h \
+    thememanager.h
 
 win32 {
     # Only include / compile these files on Windows
@@ -26,9 +29,7 @@ win32 {
         qwinwidget.h \
         winnativewindow.h
 
-    LIBS += -L"C:\Program Files\Microsoft SDKs\Windows\v7.1\Lib" \
-        -ldwmapi \
-        -lgdi32
+    LIBS += dwmapi.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib
 }
 
 mac {
@@ -43,3 +44,9 @@ mac {
     LIBS += -framework Foundation -framework Cocoa
     INCLUDEPATH += /System/Library/Frameworks/Foundation.framework/Versions/C/Headers
 }
+
+RESOURCES += \
+    window.qrc
+
+DISTFILES += \
+    window.css
